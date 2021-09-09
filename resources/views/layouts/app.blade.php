@@ -9,10 +9,6 @@
 
     <title>{{ config('app.name', 'Laravel') }}</title>
 
-    <!-- Scripts -->
-    <script src="{{ asset('js/app.js') }}" defer></script>
-    <script src="{{ asset('js/script.js') }}"></script>
-
     {{-- Box Icon --}}
     <link href='https://unpkg.com/boxicons@2.0.9/css/boxicons.min.css' rel='stylesheet'>
 
@@ -27,6 +23,12 @@
     <link href="{{ asset('css/app.css') }}" rel="stylesheet">
 </head>
 <body style="background-color: #36393f;">
+    <!-- Scripts -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/select2/4.0.0/js/select2.min.js"></script>
+    <script src="{{ asset('js/app.js') }}" defer></script>
+    <script src="{{ asset('js/script.js') }}"></script>
+
     <div id="app">
         <nav class="navbar navbar-expand-md navbar-light shadow-sm text-white">
             <div class="container">
@@ -65,6 +67,10 @@
                                 </a>
 
                                 <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdown">
+                                    <a class="dropdown-item" href=" {{ route('show-profile', Auth::id()) }} ">
+                                        <i class='bx bxs-user'></i> Profile
+                                    </a>
+
                                     <a class="dropdown-item" href=" {{ route('create-stock') }} ">
                                         <i class='bx bx-plus-circle'></i> Add Stock
                                     </a>

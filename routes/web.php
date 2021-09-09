@@ -24,6 +24,9 @@ Route::get('/', function () {
 // Admin & User
 Route::get('/stock', 'StockController@create')->name('create-stock');
 Route::get('/stock/detail/{id}', 'StockController@show')->name('detail-stock');
+Route::get('/user/create-profile', 'UserController@create')->name('create-profile');
+Route::get('/user/{id}', 'UserController@show')->name('show-profile');
+Route::post('/user/{id}', 'UserController@store')->name('store-profile');
 
 // Admin
 Route::post('/stock', 'StockController@store')->name('store-stock');

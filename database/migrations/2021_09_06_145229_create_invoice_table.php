@@ -15,14 +15,14 @@ class CreateInvoiceTable extends Migration
     {
         Schema::create('invoice', function (Blueprint $table) {
             $table->id();
-            $table->string("item");
-            $table->integer("price");
-            $table->integer("quantity");
-            $table->string("category");
-            $table->mediumText("image");
-            $table->string("address");
-            $table->string("postcode");
-            $table->integer("total");
+            $table->string('item');
+            $table->integer('price');
+            $table->integer('quantity');
+            $table->string('category');
+            $table->mediumText('image');
+            $table->string('address');
+            $table->string('postcode');
+            $table->integer('total');
             $table->timestamps();
         });
     }
