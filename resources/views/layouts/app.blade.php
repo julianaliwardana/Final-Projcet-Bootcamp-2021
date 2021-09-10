@@ -98,13 +98,13 @@
 
         <main class="py-4">
             @if(Session::get('success'))
-                <div class="alert alert-success">
+                <div class="alert alert-success d-flex justify-content-center">
                     {{Session::get('success')}}
                 </div>
             @endif
 
             @if(Session::get('failed'))
-                <div class="alert alert-danger">
+                <div class="alert alert-danger d-flex justify-content-center">
                     {{Session::get('failed')}}
                 </div>
             @endif

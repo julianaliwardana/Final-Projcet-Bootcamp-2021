@@ -4,6 +4,7 @@ $(document).ready(function() {
     $(".inputTlp").hide();
     $(".inputEmail").hide();
     $(".inputPassword").hide();
+    $(".buttonCreate").hide();
     $("#checkbox1").click(function() {
         if($(this).is(":checked")) {
             $(".idAdmin").show();
@@ -12,6 +13,7 @@ $(document).ready(function() {
             $(".inputEmail").show();
             $(".inputPassword").show();
             $('.checkAdmin').hide();
+            $(".buttonCreate").show();
         }
     });
     $("#checkbox2").click(function() {
@@ -22,6 +24,7 @@ $(document).ready(function() {
             $(".inputTlp").show();
             $(".inputEmail").show();
             $(".inputPassword").show();
+            $(".buttonCreate").show();
         }
     });
 });

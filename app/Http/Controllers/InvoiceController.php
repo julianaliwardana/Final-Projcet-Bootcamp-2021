@@ -67,7 +67,7 @@ class InvoiceController extends Controller
 
         $invoice->save();
 
-        return view('invoice.detail', compact('stock', 'invoice'));
+        return view('invoice.detail', compact('stock', 'invoice'))->with('success', 'Struk anda telah diprint');
     }
 
     /**

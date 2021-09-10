@@ -53,7 +53,7 @@ class UserController extends Controller
         $profile->user_id = Auth::id();
         $profile->save();
 
-        return view('profile.read', compact('profile'));
+        return view('profile.read', compact('profile'))->with('success', 'Profile anda telah dibuat');
     }
 
     /**

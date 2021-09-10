@@ -42,7 +42,8 @@ class CategoryController extends Controller
         $categories = new Category();
         $categories->name = $request->name;
         $categories->save();
-        return redirect('/category');
+
+        return redirect('/category')->with('success', 'Kategori telah dibuat');
     }
 
     /**

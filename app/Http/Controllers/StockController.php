@@ -63,7 +63,7 @@ class StockController extends Controller
 
         $stocks->save();
 
-        return redirect('/');
+        return redirect('/')->with('success', 'Produk telah dimasukkan kedalam stock');
     }
 
     /**
@@ -122,7 +122,7 @@ class StockController extends Controller
 
         $stock->save();
 
-        return view('stock.read', compact('stock'));
+        return view('stock.read', compact('stock'))->with('success', 'Produk telah diupdate');
     }
 
     /**
@@ -135,6 +135,6 @@ class StockController extends Controller
     {
         $stock = Stock::find($id);
         $stock->delete();
-        return back();
+        return back()->with('success', 'Produk telah dihapus');;
     }
 }

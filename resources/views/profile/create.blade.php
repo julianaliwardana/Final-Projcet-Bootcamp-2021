@@ -84,7 +84,7 @@
             </div>
         </div>
 
-        <div class="row">
+        <div class="row buttonCreate">
             <div class="col mt-4">
                 <button type="submit" class="btn btn-primary w-100"><i class='bx bx-plus' ></i> Create</button>
             </div>
