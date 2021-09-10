@@ -21,27 +21,31 @@ Route::get('/', function () {
     return view('home', compact('stocks'));
 });
 
-// Admin & User
-Route::get('/stock', 'StockController@create')->name('create-stock');
-Route::get('/stock/detail/{id}', 'StockController@show')->name('detail-stock');
-Route::get('/user/create-profile', 'UserController@create')->name('create-profile');
-Route::get('/user/{id}', 'UserController@show')->name('show-profile');
-Route::post('/user/{id}', 'UserController@store')->name('store-profile');
+Route::middleware('auth')->group(function () {
+    // Admin & User
+    Route::get('/stock/detail/{id}', 'StockController@show')->name('detail-stock');
+    Route::get('/user/create-profile', 'UserController@create')->name('create-profile');
+    Route::get('/user/{id}', 'UserController@show')->name('show-profile');
+    Route::post('/user/{id}', 'UserController@store')->name('store-profile');
 
-// Admin
-Route::post('/stock', 'StockController@store')->name('store-stock');
-Route::get('/stock/{id}', 'StockController@edit')->name('edit-stock');
-Route::post('/stock/detail/{id}', 'StockController@update')->name('update-stock');
-Route::delete('/stock/{id}', 'StockController@destroy')->name('delete-stock');
-Route::get('/category', 'CategoryController@index')->name('show-category');
-Route::get('/add-category', 'CategoryController@create')->name('create-category');
-Route::post('/add-category', 'CategoryController@store')->name('store-category');
+    // Admin
+    Route::middleware('CheckAdmin')->group(function () {
+        Route::get('/stock', 'StockController@create')->name('create-stock');
+        Route::post('/stock', 'StockController@store')->name('store-stock');
+        Route::get('/stock/{id}', 'StockController@edit')->name('edit-stock');
+        Route::post('/stock/detail/{id}', 'StockController@update')->name('update-stock');
+        Route::delete('/stock/{id}', 'StockController@destroy')->name('delete-stock');
+        Route::get('/category', 'CategoryController@index')->name('show-category');
+        Route::get('/add-category', 'CategoryController@create')->name('create-category');
+        Route::post('/add-category', 'CategoryController@store')->name('store-category');
+    });
 
-// User
-Route::get('/invoice', 'InvoiceController@index')->name('my-invoices');
-Route::get('/invoice/{id}', 'InvoiceController@create')->name('checkout');
-Route::get('/stock/{id}/invoice', 'InvoiceController@show')->name('detail-invoice');
-Route::post('/stock/{id}/invoice', 'InvoiceController@store')->name('store-invoice');
+    // User
+    Route::get('/invoice', 'InvoiceController@index')->name('my-invoices');
+    Route::get('/invoice/{id}', 'InvoiceController@create')->name('checkout');
+    Route::get('/stock/{id}/invoice', 'InvoiceController@show')->name('detail-invoice');
+    Route::post('/stock/{id}/invoice', 'InvoiceController@store')->name('store-invoice');
+});
 
 Auth::routes();
 
